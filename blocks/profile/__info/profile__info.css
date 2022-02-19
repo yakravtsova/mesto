@@ -1,0 +1,6 @@
+.profile__info {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 22px 30px 25px;
+  width: 550px;
+}
