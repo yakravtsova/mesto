@@ -1,16 +1,6 @@
 @import url(../vendor/normalize.css);
-
-.root {
-  background-color: #000;
-}
-
-.header {
-  max-width: 880px;
-  margin: 45px auto 0;
-  border-bottom: 1px solid rgba(84, 84, 84, .7);
-}
-
-.header__logo {
-  max-width: 142px;
-  margin-bottom: 41px;
-}
+@import url(../vendor/fonts/fonts.css);
+@import url(../blocks/root/root.css);
+@import url(../blocks/page/page.css);
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
