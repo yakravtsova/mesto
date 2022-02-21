@@ -1,6 +1,8 @@
 .profile {
   margin: 40px 0 46px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px 1fr 150px;
+  grid-template-rows: 60px 60px;
   color: #fff;
   width: 100%;
 }
