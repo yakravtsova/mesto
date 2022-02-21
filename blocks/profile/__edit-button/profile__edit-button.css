@@ -8,4 +8,5 @@
   background-position: center;
   background-color: #000;
   border: 1px solid #fff;
+  flex-shrink: 0;
 }
