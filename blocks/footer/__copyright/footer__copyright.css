@@ -3,5 +3,6 @@
   font-size: 18px;
   line-height: calc(11/9);
   font-weight: 400;
-  margin: 67px 0 56px;
+  max-width: 880px;
+  margin: 67px auto 56px;
 }
