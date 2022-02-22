@@ -10,3 +10,11 @@
   border: 1px solid #fff;
   flex-shrink: 0;
 }
+
+@media all and (max-width: 735px) {
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+    margin-top: 8px;
+  }
+}

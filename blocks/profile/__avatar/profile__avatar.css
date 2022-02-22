@@ -9,3 +9,12 @@
   grid-column: 1;
   align-self: start;
 }
+
+@media all and (max-width: 735px) {
+  .profile__avatar {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+    justify-self: center;
+  }
+}
