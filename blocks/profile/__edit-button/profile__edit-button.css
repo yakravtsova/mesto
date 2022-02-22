@@ -9,6 +9,12 @@
   background-color: #000;
   border: 1px solid #fff;
   flex-shrink: 0;
+  transition: opacity 0.4s linear;
+}
+
+.profile__edit-button:hover {
+  opacity: .6;
+  cursor: pointer;
 }
 
 @media all and (max-width: 735px) {
