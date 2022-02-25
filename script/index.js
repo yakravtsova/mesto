@@ -1,7 +1,7 @@
 
 let formElement = document.querySelector('.popup__form');
-let nameInput = document.querySelector('.popup_input_username');
-let aboutInput = document.querySelector('.popup_input_about');
+let nameInput = document.querySelector('.popup__form-input_input_username');
+let aboutInput = document.querySelector('.popup__form-input_input_about');
 let profileName = document.querySelector('.profile__name');
 let profileAbout = document.querySelector('.profile__about');
 let addButton = document.querySelector('.profile__add-button');
