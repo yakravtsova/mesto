@@ -1,0 +1,9 @@
+.element__square-box {
+  position: relative;
+}
+
+.element__square-box::after {
+  display: block;
+  content: '';
+  padding-bottom: 100%;
+}

@@ -3,11 +3,10 @@
   height: 32px;
   background-image: url(../../../images/popup-close-button.svg);
   background-size: cover;
-  background-color: #000;
+  background-color: transparent;
   border: none;
   padding: 0;
-  align-self: end;
-  margin: 0 0 8px 8px;
+  margin: -40px 0 8px 478px;
   transition: opacity 0.4s linear;
 }
 
@@ -20,6 +19,8 @@
   .popup__close-button {
     width: 20px;
     height: 20px;
+    margin-top: -36px;
     margin-bottom: 16px;
+    margin-left: 262px;
   }
 }

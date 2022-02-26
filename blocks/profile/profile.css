@@ -10,8 +10,6 @@
 
 @media all and (max-width: 735px) {
   .profile {
-    width: 100%;
-    display: grid;
     grid-template-columns: minmax(282px, 1fr);
     grid-template-rows: max-content;
     margin-top: 42px;
