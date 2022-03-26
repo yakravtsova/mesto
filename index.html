@@ -34,18 +34,22 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form popup__form_feature_edit" name="edit-form">
           <input type="text" class="popup__form-input popup__form-input_input_username" name="username" placeholder="Введите имя" required>
+          <span class="popup__input-error">Ашипка!</span>
           <input type="text" class="popup__form-input popup__form-input_input_about" name="about" placeholder="Расскажите о себе">
-          <input type="submit" class="popup__form-button" value="Сохранить">
+          <span class="popup__input-error">Ашипка!</span>
+          <input type="submit" class="popup__form-button popup__form-button_disabled" value="Сохранить">
         </form>         
       </div>     
     </div>
-    <div class="popup popup_feature_add">
+    <div class="popup popup_feature_add popup_opened">
       <div class="popup__container">
         <button class="popup__close-button popup__close-button_feature_add" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Новое место</h2>
         <form class="popup__form popup__form_feature_add" name="add-place-form">
           <input type="text" class="popup__form-input popup__form-input_input_place" name="place" placeholder="Название" required>
+          <span class="popup__input-error">Ашипка ашипка ашипка ашипка ашипка ашипка ашипка ашипка ашипка ашипка!</span>
           <input type="text" class="popup__form-input popup__form-input_input_image-link" name="image-link" placeholder="Ссылка на картинку">
+          <span class="popup__input-error">Ашипка!</span>
           <input type="submit" class="popup__form-button" value="Создать">
         </form>         
       </div>     
