@@ -4,5 +4,6 @@
   line-height: 15px;
   font-weight: 400;
   display: block;
+  box-sizing: border-box;
   min-height: 30px;
 }

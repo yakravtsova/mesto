@@ -32,24 +32,26 @@
       <div class="popup__container">
         <button class="popup__close-button popup__close-button_feature_edit" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form popup__form_feature_edit" name="edit-form">
-          <input type="text" class="popup__form-input popup__form-input_input_username" name="username" placeholder="Введите имя" required>
-          <span class="popup__input-error">Ашипка!</span>
-          <input type="text" class="popup__form-input popup__form-input_input_about" name="about" placeholder="Расскажите о себе">
-          <span class="popup__input-error">Ашипка!</span>
-          <input type="submit" class="popup__form-button popup__form-button_disabled" value="Сохранить">
+        <form class="popup__form popup__form_feature_edit" name="edit-form" autocomplete="off" novalidate>
+          <input type="text" class="popup__form-input popup__form-input_input_username" id="username-input" name="username" 
+          placeholder="Введите имя" minlength="2" maxlength="40" required>
+          <span class="popup__input-error username-input-error"></span>
+          <input type="text" class="popup__form-input popup__form-input_input_about" id="about-input" name="about" 
+          placeholder="Расскажите о себе" minlength="2" maxlength="200" required>
+          <span class="popup__input-error about-input-error"></span>
+          <input type="submit" class="popup__form-button" value="Сохранить">
         </form>         
       </div>     
     </div>
-    <div class="popup popup_feature_add popup_opened">
+    <div class="popup popup_feature_add">
       <div class="popup__container">
         <button class="popup__close-button popup__close-button_feature_add" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form popup__form_feature_add" name="add-place-form">
-          <input type="text" class="popup__form-input popup__form-input_input_place" name="place" placeholder="Название" required>
-          <span class="popup__input-error">Ашипка ашипка ашипка ашипка ашипка ашипка ашипка ашипка ашипка ашипка!</span>
-          <input type="text" class="popup__form-input popup__form-input_input_image-link" name="image-link" placeholder="Ссылка на картинку">
-          <span class="popup__input-error">Ашипка!</span>
+        <form class="popup__form popup__form_feature_add" name="add-place-form" novalidate>
+          <input type="text" class="popup__form-input popup__form-input_input_place" id="place-input" name="place" placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="popup__input-error place-input-error"></span>
+          <input type="url" class="popup__form-input popup__form-input_input_image-link" id="link-input" name="image-link" placeholder="Ссылка на картинку" required>
+          <span class="popup__input-error link-input-error"></span>
           <input type="submit" class="popup__form-button" value="Создать">
         </form>         
       </div>     
@@ -75,6 +77,8 @@
         </div>
       </li>
     </template>
+    <script src="./script/data.js"></script>
     <script src="./script/index.js"></script>
+    <script src="./script/validate.js"></script>
   </body>
 </html>

@@ -18,32 +18,6 @@ const elementTemplate = document.querySelector('.element__template').content;
 const elementsList = document.querySelector('.elements__list');
 const popupViewImage = document.querySelector('.popup__view-image');
 const popupImageCaption = document.querySelector('.popup__image-caption');
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ];
 
 function renderElement(card) {
   //функция возвращает одну новую карточку по шаблону, но не выводит её на страницу
@@ -69,6 +43,8 @@ function renderElement(card) {
 const elementsArray = initialCards.map(renderElement);
 //размещаем исходные карточки на странице
 elementsArray.forEach((item) => elementsList.append(item));
+//сразу заполним форму редактирования профиля исходными данными пользователя
+fillEditForm();
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -99,11 +75,14 @@ function handleAddingFormSubmit(evt) {
   addFormElement.reset();
 }
 
+function fillEditForm() {
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
+}
+
 editButton.addEventListener('click', function() {
+    fillEditForm();
     openPopup(editPopup);
-    //при открытии попапа редактирования профиля поля формы заняты исходными данными пользователя
-    nameInput.value = profileName.textContent;
-    aboutInput.value = profileAbout.textContent;
 });
 
 addButton.addEventListener('click', () => openPopup(addPopup));
