@@ -9,6 +9,7 @@ const profileAbout = document.querySelector('.profile__about');
 const addFormElement = document.querySelector('.popup__form_feature_add');
 const addButton = document.querySelector('.profile__add-button');
 const addPopup = document.querySelector('.popup_feature_add');
+const addSaveButton = document.querySelector('.popup__add-form-button');
 const addCloseButton = document.querySelector('.popup__close-button_feature_add');
 const addPlace = document.querySelector('.popup__form-input_input_place');
 const addImageLink = document.querySelector('.popup__form-input_input_image-link');
@@ -47,11 +48,21 @@ elementsArray.forEach((item) => elementsList.append(item));
 fillEditForm();
 
 function openPopup(popup) {
-    popup.classList.add('popup_opened');
+  document.addEventListener('keydown', handleEscUp);
+  popup.addEventListener('click', closePopupButtonOverlay);
+  popup.classList.add('popup_opened');
 }
 
 function closePopup(popup) {
+  document.removeEventListener('keydown', handleEscUp);
+  popup.removeEventListener('click', closePopupButtonOverlay);
   popup.classList.remove('popup_opened');
+}
+
+function closePopupButtonOverlay(evt) {
+  if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')) {
+    closePopup(evt.currentTarget);
+  }
 }
 
 function handleProfileFormSubmit(evt) {
@@ -73,6 +84,8 @@ function handleAddingFormSubmit(evt) {
   closePopup(addPopup);
   //очищаем форму
   addFormElement.reset();
+  addSaveButton.classList.add('popup__form-button_disabled');
+  addSaveButton.disabled = true;
 }
 
 function fillEditForm() {
@@ -80,16 +93,19 @@ function fillEditForm() {
   aboutInput.value = profileAbout.textContent;
 }
 
-editButton.addEventListener('click', function() {
+function handleEscUp(evt) {
+  if (evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_opened');
+    closePopup(activePopup);
+  }
+}
+
+editButton.addEventListener('click', () => {
     fillEditForm();
     openPopup(editPopup);
 });
 
 addButton.addEventListener('click', () => openPopup(addPopup));
-
-editCloseButton.addEventListener('click', () => closePopup(editPopup));
-addCloseButton.addEventListener('click', () => closePopup(addPopup));
-viewCloseButton.addEventListener('click', () => closePopup(viewPopup));
 
 editFormElement.addEventListener('submit', handleProfileFormSubmit);
 addFormElement.addEventListener('submit', handleAddingFormSubmit);
