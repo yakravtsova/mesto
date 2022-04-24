@@ -25,24 +25,25 @@ export default class Card {
     });
     //просмотр
     this._element.querySelector('.element__image').addEventListener('click', (evt) => {
-      this._viewCard(evt);
+      this._viewCard();
     });
   }
 
   _removeElement = () => {
     this._element.remove();
+    this._element = null;
   }
 
   _likeElement = (evt) => {
     evt.target.classList.toggle('element__like-button_active');
   }
 
-  _viewCard = (evt) => {
+  _viewCard = () => {
     openPopup(document.querySelector('.popup_feature_view'));
     const popupViewImage = document.querySelector('.popup__view-image');
-    popupViewImage.src = evt.target.src;
-    popupViewImage.alt = evt.target.alt;
-    document.querySelector('.popup__image-caption').textContent = evt.target.alt;
+    popupViewImage.src = this._link;
+    popupViewImage.alt = this._name;
+    document.querySelector('.popup__image-caption').textContent = this._name;
   }
 
   generate = () => {

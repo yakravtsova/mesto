@@ -40,16 +40,24 @@ export default class FormValidator {
       return !inputElement.validity.valid;
     });
   }
+
+  disableButton = () => {
+    this._buttonElement.classList.add(this._inactiveButtonClass);
+    this._buttonElement.disabled = true;
+  }
+
+  enableButton = () => {
+    this._buttonElement.classList.remove(this._inactiveButtonClass);
+    this._buttonElement.disabled = false;
+  }
   
   //если есть поля с ошибками, нужно сделать кнопку сабмита неактивной и добавить соответствующий класс, и наоборот
   _toggleButtonState = () => {
     if (this._hasInvalidInput()) {
-      this._buttonElement.classList.add(this._inactiveButtonClass);
-      this._buttonElement.disabled = true;
+      this.disableButton();
     }
     else {
-      this._buttonElement.classList.remove(this._inactiveButtonClass);
-      this._buttonElement.disabled = false;
+      this.enableButton();
     }
   }
   
