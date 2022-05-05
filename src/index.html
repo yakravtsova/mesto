@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
   </head>
   <body class="root">
     <header class="header">
-      <img class="header__logo" src="./images/header-logo.svg" alt="Место Россия">
+      <img class="header__logo" src="<%=require('./images/header-logo.svg')%>" alt="Место Россия">
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/profile-avatar.jpg" alt="Аватар пользователя">
+        <img class="profile__avatar" src="<%=require('./images/profile-avatar.jpg')%>" alt="Аватар пользователя">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
@@ -48,9 +47,9 @@
         <button class="popup__close-button popup__close-button_feature_add" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Новое место</h2>
         <form class="popup__form popup__form_feature_add" name="add-place-form" novalidate>
-          <input type="text" class="popup__form-input popup__form-input_input_place" id="place-input" name="place" placeholder="Название" minlength="2" maxlength="30" required>
+          <input type="text" class="popup__form-input popup__form-input_input_place" id="place-input" name="name" placeholder="Название" minlength="2" maxlength="30" required>
           <span class="popup__input-error place-input-error"></span>
-          <input type="url" class="popup__form-input popup__form-input_input_image-link" id="link-input" name="image-link" placeholder="Ссылка на картинку" required>
+          <input type="url" class="popup__form-input popup__form-input_input_image-link" id="link-input" name="link" placeholder="Ссылка на картинку" required>
           <span class="popup__input-error link-input-error"></span>
           <input type="submit" class="popup__form-button popup__add-form-button" value="Создать">
         </form>         
@@ -77,6 +76,5 @@
         </div>
       </li>
     </template>
-    <script type="module" src="./script/index.js"></script>
-  </body>
+    </body>
 </html>

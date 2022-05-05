@@ -1,10 +1,9 @@
-import {openPopup} from './utils.js';
-
 export default class Card {
 
-  constructor(data, selector) {
+  constructor({data, handleCardClick}, selector) {
     this._name = data.name;
     this._link = data.link;
+    this._handleCardClick = handleCardClick;
     this._selector = selector;
   }
 
@@ -16,16 +15,16 @@ export default class Card {
 
   _setEventListeners = () => {
     //удаление карточки
-    this._element.querySelector('.element__remove-button').addEventListener('click', () => {
-      this._removeElement()
-    });
+    this._element.querySelector('.element__remove-button').addEventListener('click', this._removeElement);
     //лайк
-    this._element.querySelector('.element__like-button').addEventListener('click', (evt) => {
-      this._likeElement(evt);
-    });
+    this._element.querySelector('.element__like-button').addEventListener('click', evt => this._likeElement(evt));
     //просмотр
-    this._element.querySelector('.element__image').addEventListener('click', (evt) => {
-      this._viewCard();
+    this._element.querySelector('.element__image').addEventListener('click', () => {
+      const item = {
+        name: this._name,
+        link: this._link
+      };
+      this._handleCardClick(item);
     });
   }
 
@@ -36,14 +35,6 @@ export default class Card {
 
   _likeElement = (evt) => {
     evt.target.classList.toggle('element__like-button_active');
-  }
-
-  _viewCard = () => {
-    openPopup(document.querySelector('.popup_feature_view'));
-    const popupViewImage = document.querySelector('.popup__view-image');
-    popupViewImage.src = this._link;
-    popupViewImage.alt = this._name;
-    document.querySelector('.popup__image-caption').textContent = this._name;
   }
 
   generate = () => {
