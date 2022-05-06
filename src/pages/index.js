@@ -1,4 +1,4 @@
-import {editButton, editPopupSelector, nameInput, aboutInput, profileNameSelector, profileAboutSelector, addFormElement, addButton, addPopupSelector, 
+import {editButton, editPopupSelector, editFormElement, nameInput, aboutInput, profileNameSelector, profileAboutSelector, addFormElement, addButton, addPopupSelector, 
   elementsListSelector, viewPopupSelector, initialCards, formSettings} from '../utils/constants.js';
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
@@ -9,12 +9,6 @@ import UserInfo from '../components/UserInfo.js';
 import './index.css';
 
 const userInfo = new UserInfo(profileNameSelector, profileAboutSelector);
-
-//функция заполняет поля редактирования профиля исходными данными
-const fillEditForm = ({username, about}) => {
-  nameInput.value = username;
-  aboutInput.value = about;
-}
 
 //попап просмотра карточки
 const viewPopup = new PopupWithImage(viewPopupSelector);
@@ -43,8 +37,7 @@ const cardList = new Section(
 //отрисовка секции на странице
 cardList.renderItems();
 
-//форма редактирования профиля сразу заполняется исходными данными пользователя
-fillEditForm(userInfo.getUserInfo());
+
 
 const formValidators = {};
 
@@ -62,35 +55,36 @@ enableValidation(formSettings);
 //попап редактирования информации о пользователе
 const editPopup = new PopupWithForm({
   selector: editPopupSelector,
-  handleFormSubmit: (evt) => {
+  handleFormSubmit: (evt,userData) => {
     evt.preventDefault();
-    const userData = editPopup._getInputValues();
     userInfo.setUserInfo(userData);
     editPopup.close();
   }
 });
 editPopup.setEventListeners();
 
+//форма редактирования профиля сразу заполняется исходными данными пользователя
+//editPopup.setInputValues(userInfo.getUserInfo());
+
 //попап добавления карточки
 const addPopup = new PopupWithForm({
   selector: addPopupSelector,
-  handleFormSubmit: (evt) => {
+  handleFormSubmit: (evt, place) => {
     evt.preventDefault();
-    //создаём объект с названием достопримечательности и ссылкой на картинку
-    const place = addPopup._getInputValues();
     //создаём и сразу выводим новую карточку на страницу в начало списка карточек
     cardList.setItemStart(getCard(place));
     addPopup.close();
-    //очищаем форму
-    addFormElement.reset();
-    formValidators[addFormElement.name].disableButton();
     }
 });
 addPopup.setEventListeners();
 
 editButton.addEventListener('click', () => {
-  fillEditForm(userInfo.getUserInfo());
+  editPopup.setInputValues(userInfo.getUserInfo());
+  formValidators[editFormElement.name].resetValidation();
   editPopup.open();
 });
 
-addButton.addEventListener('click', () => addPopup.open());
+addButton.addEventListener('click', () => {
+  formValidators[addFormElement.name].resetValidation();
+  addPopup.open()
+});

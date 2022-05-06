@@ -50,6 +50,13 @@ export default class FormValidator {
     this._buttonElement.classList.remove(this._inactiveButtonClass);
     this._buttonElement.disabled = false;
   }
+
+  resetValidation = () => {
+    this._toggleButtonState();
+    this._inputElements.forEach((inputElement) => {
+      this._hideInputError(inputElement)
+    });
+  }
   
   //если есть поля с ошибками, нужно сделать кнопку сабмита неактивной и добавить соответствующий класс, и наоборот
   _toggleButtonState = () => {

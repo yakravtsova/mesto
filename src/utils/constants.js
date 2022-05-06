@@ -1,5 +1,6 @@
 const editButton = document.querySelector('.profile__edit-button');
 const editPopupSelector = '.popup_feature_edit';
+const editFormElement = document.querySelector('.popup__form_feature_edit');
 const nameInput = document.querySelector('.popup__form-input_input_username');
 const aboutInput = document.querySelector('.popup__form-input_input_about');
 const profileNameSelector = '.profile__name';
@@ -45,5 +46,5 @@ const formSettings = {
   inputErrorClass: 'popup__form-input_type_error'
 }
 
-export {editButton, editPopupSelector, nameInput, aboutInput, profileNameSelector, profileAboutSelector, addFormElement, addButton, addPopupSelector, 
+export {editButton, editPopupSelector, editFormElement, nameInput, aboutInput, profileNameSelector, profileAboutSelector, addFormElement, addButton, addPopupSelector, 
   elementsListSelector, viewPopupSelector, initialCards, formSettings}
