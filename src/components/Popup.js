@@ -18,7 +18,6 @@ export default class Popup {
   }
 
   setEventListeners() {
-    this._popupViewImage = document.querySelector('.popup__view-image');
     this._popup.addEventListener('click', evt => this._closePopupButtonOverlay(evt));
   }
 
