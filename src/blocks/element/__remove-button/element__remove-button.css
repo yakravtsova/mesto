@@ -10,7 +10,7 @@
   position: absolute;
   right: 20px;
   top: 20px;
-  transition: opacity 0.4s linear;
+  transition: opacity .4s linear;
 }
 
 .element__remove-button:hover {

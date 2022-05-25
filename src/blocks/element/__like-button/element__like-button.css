@@ -8,7 +8,7 @@
   padding: 0;
   background-color: #fff;
   margin: 0;
-  transition: opacity 0.4s linear;
+  transition: opacity .4s linear;
 }
 
 .element__like-button:hover {

@@ -9,7 +9,7 @@
   font-size: 18px;
   line-height: 22px;
   border-radius: 2px;
-  transition: opacity 0.4s linear;
+  transition: opacity .4s linear;
 }
 
 .popup__form-button:not([disabled]):hover {

@@ -11,12 +11,15 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/profile-avatar.jpg')%>" alt="Аватар пользователя">
+        <div class="profile__avatar-wrap">
+          <img class="profile__avatar" src="" alt="Аватар пользователя">
+          <button class="profile__edit-avatar" type="button" aria-label="Обновить аватар"></button>
+        </div>
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
         </div>
-        <p class="profile__about">Исследователь океана</p>
+        <p class="profile__about"></p>
         <button class="profile__add-button" type="button" aria-label="Добавить"></button>  
       </section>
       <section class="elements">
@@ -32,13 +35,13 @@
         <button class="popup__close-button popup__close-button_feature_edit" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form popup__form_feature_edit" name="edit-form" autocomplete="off" novalidate>
-          <input type="text" class="popup__form-input popup__form-input_input_username" id="username-input" name="username" 
+          <input type="text" class="popup__form-input popup__form-input_input_username" id="username-input" name="name" 
           placeholder="Введите имя" minlength="2" maxlength="40" required>
           <span class="popup__input-error username-input-error"></span>
           <input type="text" class="popup__form-input popup__form-input_input_about" id="about-input" name="about" 
           placeholder="Расскажите о себе" minlength="2" maxlength="200" required>
           <span class="popup__input-error about-input-error"></span>
-          <input type="submit" class="popup__form-button" value="Сохранить">
+          <input type="submit" class="popup__form-button popup__edit-form-button" value="Сохранить">
         </form>         
       </div>     
     </div>
@@ -64,6 +67,31 @@
       </figure>
       </div>     
     </div>
+    <div class="popup popup_feature_confirm">
+      <div class="popup__container">
+        <button class="popup__close-button popup__close-button_feature_confirm" type="button" aria-label="Закрыть"></button>
+        <h2 class="popup__title popup__title_feature_confirm">Вы уверены?</h2>
+        <button class="popup__form-button popup__confirm-button popup__delete-button">Да</button>
+      </div>
+    </div>
+    <div class="popup popup_feature_error">
+      <div class="popup__container">
+        <button class="popup__close-button popup__close-button_feature_confirm" type="button" aria-label="Закрыть"></button>
+        <h2 class="popup__title popup__title_feature_confirm">Что-то пошло не так</h2>
+        <button class="popup__form-button popup__confirm-button">Ладно</button>
+      </div>
+    </div>
+    <div class="popup popup_feature_edit-avatar">
+      <div class="popup__container">
+        <button class="popup__close-button popup__close-button_feature_edit-avatar" type="button" aria-label="Закрыть"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__form_feature_edit-avatar" name="edit-avatar-form" novalidate>
+          <input type="url" class="popup__form-input popup__form-input_input_avatar" id="avatar-input" name="avatar" placeholder="Ссылка на картинку" required>
+          <span class="popup__input-error avatar-input-error"></span>
+          <input type="submit" class="popup__form-button popup__edit-avatar-form-button" value="Создать">
+        </form>         
+      </div>     
+    </div>
     <template class="element__template">
       <li class="element">
         <div class="element__square-box">
@@ -72,7 +100,9 @@
         </div>
           <div class="element__description">
           <h2 class="element__title"></h2>
-          <button class="element__like-button" type="button" aria-label="Нравится"></button>
+          <div class="element__like-box">
+            <button class="element__like-button" type="button" aria-label="Нравится"></button>
+            <p class="element__likes">0</p>
         </div>
       </li>
     </template>

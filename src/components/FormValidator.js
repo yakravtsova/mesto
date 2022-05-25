@@ -73,10 +73,9 @@ export default class FormValidator {
     this._inputElements = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
     //уже перед первым вводом проверили поля формы на валидность, активировали или деактивировали кнопку сабмита
-    this._toggleButtonState();
+    //this._toggleButtonState();
     //на каждое поле повесили слушателя ввода, который отслеживает валидность полей и следит за состоянием кнопки сабмита
     this._inputElements.forEach((inputElement) => {
-      //this._inputElement = inputElement;
         inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
